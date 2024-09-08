@@ -1,0 +1,13 @@
+apiVersion: v2
+appVersion: "0.1"
+dependencies:
+  - name: victoria-metrics-single
+    version: 0.11.1
+    repository: https://victoriametrics.github.io/helm-charts/
+  - name: grafana
+    version: 8.5.1
+    repository: https://grafana.github.io/helm-charts
+description: Full
+name: victoriametricstest
+type: application
+version: 0.1.0
