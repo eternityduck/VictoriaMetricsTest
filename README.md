@@ -1,18 +1,26 @@
 # VictoriaMetricsTest
 ## Running
-`helm install vmsingle vm/victoria-metrics-single -f values.yaml -n default`
-`helm install grafana grafana/grafana -f grafana-values.yaml`
-`helm install app helm/charts/app`
+```
+helm install vmsingle vm/victoria-metrics-single -f values.yaml -n default
+helm install grafana grafana/grafana -f grafana-values.yaml
+helm install app helm/charts/app
+```
 
 
 Get the Victoria Metrics service URL by running these commands in the same shell:
-`export POD_NAME=$(kubectl get pods --namespace default -l "app=server" -o jsonpath="{.items[0].metadata.name}")
-kubectl --namespace default port-forward $POD_NAME 8428`
+```
+export POD_NAME=$(kubectl get pods --namespace default -l "app=server" -o jsonpath="{.items[0].metadata.name}")
+kubectl --namespace default port-forward $POD_NAME 8428
+```
 
-`export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/name=grafana,app.kubernetes.io/instance=grafana" -o jsonpath="{.items[0].metadata.name}")
- kubectl --namespace default port-forward $POD_NAME 3000`
+```
+export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/name=grafana,app.kubernetes.io/instance=grafana" -o jsonpath="{.items[0].metadata.name}")
+ kubectl --namespace default port-forward $POD_NAME 3000
+```
 
- `kubectl get secret --namespace default grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo`
+ ```
+ kubectl get secret --namespace default grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+```
 
  P.S. Check out another branch(`helm-chart`) for installing within one helm chart with dependencies.
 
