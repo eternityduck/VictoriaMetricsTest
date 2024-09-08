@@ -1,6 +1,10 @@
 # VictoriaMetricsTest
 ## Running
-
+`cd helm`
+`helm dependency build`
+`helm upgrade --install victoriametricstest . \
+  --values grafana-values.yaml \
+  --values values.yaml`
 
 
 ## Testing
